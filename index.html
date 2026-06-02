@@ -6,177 +6,202 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--v:#8B2FC9;--vd:#5B1A8A;--vl:#C084FC;--glow:rgba(139,47,201,0.28);--txt:#0f0a1a;--txt2:#5a5270;--txt3:#9490a8;--border:rgba(139,47,201,0.14)}
+:root{--v:#8B2FC9;--vd:#5B1A8A;--vl:#C084FC;--glow:rgba(139,47,201,0.28);--txt:#0f0a1a;--txt2:#5a5270;--txt3:#9490a8}
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:#fff;color:var(--txt);overflow-x:hidden}
 #particles{position:fixed;inset:0;z-index:0;pointer-events:none}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:16px 52px;background:rgba(255,255,255,0.9);backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:16px 52px;background:rgba(255,255,255,0.92);backdrop-filter:blur(24px);border-bottom:1px solid rgba(139,47,201,0.1)}
 .logo{font-size:20px;font-weight:800;letter-spacing:-.5px;background:linear-gradient(135deg,var(--vd),var(--v));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links{display:flex;gap:28px;list-style:none;align-items:center}
 .nav-links a{font-size:13px;font-weight:500;color:var(--txt2);text-decoration:none;transition:color .2s}
 .nav-links a:hover{color:var(--v)}
+.nav-ig{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;text-decoration:none;color:var(--txt2);transition:color .2s}
+.nav-ig:hover{color:#ee2a7b}
+.nav-ig svg{transition:transform .2s}
+.nav-ig:hover svg{transform:scale(1.15)}
 .nav-btn{padding:10px 22px;border-radius:50px;font-size:13px;font-weight:700;background:linear-gradient(135deg,var(--vd),var(--v));color:#fff;border:none;cursor:pointer;box-shadow:0 4px 20px var(--glow);transition:transform .2s,box-shadow .2s;text-decoration:none}
 .nav-btn:hover{transform:translateY(-2px);box-shadow:0 8px 32px var(--glow)}
 
-/* HERO */
-#hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:0;padding-top:80px;overflow:hidden;position:relative}
+#hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding-top:80px;overflow:hidden;position:relative}
 .hero-left{padding:80px 60px 80px 52px;position:relative;z-index:10}
 .hero-right{height:100vh;position:relative;overflow:hidden}
-.hero-right-img{width:100%;height:100%;object-fit:cover;transition:transform 8s ease;transform:scale(1.05)}
-.hero-right-img:hover{transform:scale(1)}
-.hero-right-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,0.15) 0%,transparent 40%)}
-.hero-blob{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(139,47,201,0.07),transparent 65%);top:-100px;left:-100px;pointer-events:none;animation:blobF 10s ease-in-out infinite}
-@keyframes blobF{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-20px) scale(1.03)}}
-
-.hero-tag{display:inline-flex;align-items:center;gap:10px;padding:8px 20px;border-radius:50px;border:1px solid rgba(139,47,201,0.25);background:rgba(139,47,201,0.06);font-size:12px;font-weight:600;color:var(--vd);letter-spacing:1px;text-transform:uppercase;margin-bottom:28px;animation:sUp .8s ease both}
-.pdot{width:8px;height:8px;border-radius:50%;background:var(--v);animation:pA 1.5s ease-in-out infinite}
+.hero-right img{width:100%;height:100%;object-fit:cover;transition:opacity 1.2s ease,transform 8s ease}
+.hero-right-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,0.2) 0%,transparent 35%)}
+.hblob{position:absolute;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(139,47,201,0.07),transparent 65%);top:-80px;left:-80px;pointer-events:none;animation:bF 10s ease-in-out infinite}
+@keyframes bF{0%,100%{transform:translateY(0)}50%{transform:translateY(-22px)}}
+.hero-tag{display:inline-flex;align-items:center;gap:10px;padding:8px 20px;border-radius:50px;border:1px solid rgba(139,47,201,0.25);background:rgba(139,47,201,0.06);font-size:12px;font-weight:600;color:var(--vd);letter-spacing:1px;text-transform:uppercase;margin-bottom:28px;animation:sU .8s ease both}
+.pd{width:8px;height:8px;border-radius:50%;background:var(--v);animation:pA 1.5s ease-in-out infinite}
 @keyframes pA{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.6);opacity:.4}}
-
-.hero-h1{font-size:clamp(42px,5vw,72px);font-weight:900;line-height:1.05;letter-spacing:-2px;margin-bottom:20px;animation:sUp .8s ease .1s both}
-.h1d{color:var(--txt)}.h1g{background:linear-gradient(135deg,var(--vd),var(--v),#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent}.h1m{color:var(--txt3);font-weight:300}
-.hero-desc{font-size:16px;line-height:1.75;color:var(--txt2);max-width:460px;margin-bottom:36px;animation:sUp .8s ease .2s both}
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap;animation:sUp .8s ease .3s both}
-.btn-g{padding:15px 32px;border-radius:50px;font-size:14px;font-weight:700;background:linear-gradient(135deg,var(--vd),var(--v));color:#fff;border:none;cursor:pointer;box-shadow:0 6px 28px var(--glow);transition:transform .25s,box-shadow .25s;text-decoration:none;display:inline-block}
-.btn-g:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(139,47,201,0.45)}
-.btn-o{padding:15px 32px;border-radius:50px;font-size:14px;font-weight:700;background:transparent;color:var(--vd);border:2px solid rgba(139,47,201,0.3);cursor:pointer;transition:all .25s;text-decoration:none;display:inline-block}
-.btn-o:hover{border-color:var(--v);background:rgba(139,47,201,0.05)}
-.hero-stats{display:flex;gap:36px;margin-top:48px;border-top:1px solid rgba(139,47,201,0.12);padding-top:32px;animation:sUp .8s ease .4s both}
+.hero-h1{font-size:clamp(40px,5vw,70px);font-weight:900;line-height:1.05;letter-spacing:-2px;margin-bottom:20px;animation:sU .8s ease .1s both}
+.hd{color:var(--txt)}.hg{background:linear-gradient(135deg,var(--vd),var(--v),#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent}.hm{color:var(--txt3);font-weight:300}
+.hero-desc{font-size:16px;line-height:1.75;color:var(--txt2);max-width:450px;margin-bottom:36px;animation:sU .8s ease .2s both}
+.hbtns{display:flex;gap:14px;flex-wrap:wrap;animation:sU .8s ease .3s both}
+.bg{padding:15px 32px;border-radius:50px;font-size:14px;font-weight:700;background:linear-gradient(135deg,var(--vd),var(--v));color:#fff;border:none;cursor:pointer;box-shadow:0 6px 28px var(--glow);transition:transform .25s,box-shadow .25s;text-decoration:none;display:inline-block}
+.bg:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(139,47,201,.45)}
+.bo{padding:15px 32px;border-radius:50px;font-size:14px;font-weight:700;background:transparent;color:var(--vd);border:2px solid rgba(139,47,201,.3);cursor:pointer;transition:all .25s;text-decoration:none;display:inline-block}
+.bo:hover{border-color:var(--v);background:rgba(139,47,201,.05)}
+.hstats{display:flex;gap:36px;margin-top:48px;border-top:1px solid rgba(139,47,201,.12);padding-top:32px;animation:sU .8s ease .4s both}
 .sn{font-size:36px;font-weight:900;background:linear-gradient(135deg,var(--vd),var(--v));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .sl{font-size:12px;color:var(--txt3);margin-top:3px;font-weight:500}
+.hbf{position:absolute;background:rgba(255,255,255,0.93);backdrop-filter:blur(12px);border:1px solid rgba(139,47,201,.2);border-radius:14px;padding:11px 15px;box-shadow:0 8px 28px rgba(0,0,0,.1);animation:fB 5s ease-in-out infinite;z-index:10}
+@keyframes fB{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.hbf-l{font-size:10px;font-weight:600;color:var(--v);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px}
+.hbf-v{font-size:13px;font-weight:700;color:var(--txt)}
+.hero-dots{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:10}
+.hdot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.5);cursor:pointer;transition:all .3s;border:1.5px solid rgba(255,255,255,.6)}
+.hdot.active{background:#fff;transform:scale(1.3)}
+@keyframes sU{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 
-/* floating badges on hero img */
-.hero-badge-float{position:absolute;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border:1px solid rgba(139,47,201,0.2);border-radius:16px;padding:12px 16px;box-shadow:0 8px 28px rgba(0,0,0,0.1);animation:floatBadge 5s ease-in-out infinite}
-.hero-badge-float:nth-child(2){bottom:15%;left:5%;animation-delay:-2.5s}
-.hero-badge-float:nth-child(3){top:20%;right:5%;animation-delay:-1s}
-.hbf-label{font-size:11px;font-weight:600;color:var(--v);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px}
-.hbf-val{font-size:14px;font-weight:700;color:var(--txt)}
-@keyframes floatBadge{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-@keyframes sUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-
-/* SECTIONS */
-section.sec{padding:100px 52px;position:relative;z-index:10}
+.sec{padding:100px 52px;position:relative;z-index:10}
 .eyebrow{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--v);text-align:center;margin-bottom:12px}
 .sec-h{font-size:clamp(28px,3.5vw,46px);font-weight:800;text-align:center;color:var(--txt);letter-spacing:-1.2px;line-height:1.12;margin-bottom:14px}
 .sec-sub{text-align:center;font-size:15px;color:var(--txt2);max-width:440px;margin:0 auto 56px;line-height:1.75}
-.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(139,47,201,0.18),transparent);max-width:700px;margin:0 auto}
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(139,47,201,.18),transparent);max-width:700px;margin:0 auto}
 
-/* VALORES */
 #nosotros{background:#f9f7fd}
 .vals{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:960px;margin:0 auto}
-.vc{padding:36px 26px;border-radius:26px;background:#fff;border:1px solid rgba(139,47,201,0.1);box-shadow:0 2px 18px rgba(139,47,201,0.05);position:relative;overflow:hidden;transition:transform .4s cubic-bezier(.23,1,.32,1),box-shadow .4s,border-color .4s;cursor:default;transform-style:preserve-3d}
-.vc::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(139,47,201,0.06),transparent 60%);opacity:0;transition:opacity .4s}
-.vc:hover{transform:translateY(-10px) rotateX(4deg) rotateY(-2deg);box-shadow:0 24px 56px rgba(139,47,201,0.16);border-color:rgba(139,47,201,0.3)}
+.vc{padding:36px 26px;border-radius:26px;background:#fff;border:1px solid rgba(139,47,201,.1);box-shadow:0 2px 18px rgba(139,47,201,.05);position:relative;overflow:hidden;transition:transform .4s cubic-bezier(.23,1,.32,1),box-shadow .4s,border-color .4s;cursor:default;transform-style:preserve-3d}
+.vc::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(139,47,201,.06),transparent 60%);opacity:0;transition:opacity .4s}
+.vc:hover{transform:translateY(-10px) rotateX(4deg) rotateY(-2deg);box-shadow:0 24px 56px rgba(139,47,201,.16);border-color:rgba(139,47,201,.3)}
 .vc:hover::before{opacity:1}
-.vc-num{font-size:11px;font-weight:700;letter-spacing:3px;color:rgba(139,47,201,0.3);margin-bottom:16px}
-.vc-ico{width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,rgba(139,47,201,0.1),rgba(139,47,201,0.04));border:1px solid rgba(139,47,201,0.18);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px}
+.vc-n{font-size:11px;font-weight:700;letter-spacing:3px;color:rgba(139,47,201,.3);margin-bottom:16px}
+.vc-i{width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,rgba(139,47,201,.1),rgba(139,47,201,.04));border:1px solid rgba(139,47,201,.18);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px}
 .vc-t{font-size:18px;font-weight:700;color:var(--txt);margin-bottom:8px}
 .vc-d{font-size:13.5px;color:var(--txt2);line-height:1.75}
-.vc-line{position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--vd),var(--vl));transform:scaleX(0);transition:transform .4s;transform-origin:left}
-.vc:hover .vc-line{transform:scaleX(1)}
+.vc-ln{position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--vd),var(--vl));transform:scaleX(0);transition:transform .4s;transform-origin:left}
+.vc:hover .vc-ln{transform:scaleX(1)}
 
-/* GALERÍA HERO */
 #galeria{background:#fff}
-.gal-hero{position:relative;height:520px;border-radius:28px;overflow:hidden;margin:0 auto 24px;max-width:1100px;cursor:pointer}
-.gal-hero img{width:100%;height:100%;object-fit:cover;transition:transform 6s ease}
-.gal-hero:hover img{transform:scale(1.04)}
-.gal-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,0,25,0.5) 0%,transparent 50%)}
-.gal-hero-caption{position:absolute;bottom:28px;left:32px;color:#fff}
-.gal-hero-caption h3{font-size:22px;font-weight:800;margin-bottom:4px}
-.gal-hero-caption p{font-size:13px;opacity:.75}
+.gal-main{position:relative;height:500px;border-radius:26px;overflow:hidden;max-width:1100px;margin:0 auto 20px;cursor:pointer}
+.gal-main img{width:100%;height:100%;object-fit:cover;transition:transform 6s ease}
+.gal-main:hover img{transform:scale(1.04)}
+.gal-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,0,25,.5) 0%,transparent 50%)}
+.gal-cap{position:absolute;bottom:28px;left:32px;color:#fff}
+.gal-cap h3{font-size:22px;font-weight:800;margin-bottom:4px}
+.gal-cap p{font-size:13px;opacity:.7}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:200px 200px;gap:12px;max-width:1100px;margin:0 auto}
+.gi{border-radius:16px;overflow:hidden;cursor:pointer;position:relative}
+.gi img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease,filter .3s}
+.gi:hover img{transform:scale(1.08);filter:brightness(1.05)}
+.gi.tall{grid-row:span 2}.gi.wide{grid-column:span 2}
+.gi-ov{position:absolute;inset:0;background:rgba(90,30,150,0);transition:background .3s}
+.gi:hover .gi-ov{background:rgba(90,30,150,.12)}
 
-.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,220px);gap:12px;max-width:1100px;margin:0 auto}
-.gal-item{border-radius:18px;overflow:hidden;position:relative;cursor:pointer}
-.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
-.gal-item:hover img{transform:scale(1.08)}
-.gal-item-overlay{position:absolute;inset:0;background:rgba(90,30,150,0);transition:background .3s}
-.gal-item:hover .gal-item-overlay{background:rgba(90,30,150,0.15)}
-.gal-item.tall{grid-row:span 2}
-.gal-item.wide{grid-column:span 2}
+/* CTA INSTAGRAM BANNER */
+.ig-banner{
+  max-width:1100px;margin:32px auto 0;
+  border-radius:22px;
+  background:linear-gradient(135deg,#f9ce34 0%,#ee2a7b 40%,#6228d7 100%);
+  padding:2px;
+}
+.ig-banner-inner{
+  background:#fff;border-radius:20px;
+  padding:24px 32px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+.ig-banner-left{display:flex;align-items:center;gap:16px}
+.ig-banner-icon{
+  width:48px;height:48px;border-radius:14px;flex-shrink:0;
+  background:linear-gradient(135deg,#f9ce34,#ee2a7b,#6228d7);
+  display:flex;align-items:center;justify-content:center;
+}
+.ig-banner-text strong{font-size:15px;font-weight:800;color:var(--txt);display:block}
+.ig-banner-text span{font-size:13px;color:var(--txt2)}
+.ig-banner-btn{
+  padding:11px 24px;border-radius:50px;font-size:13px;font-weight:700;
+  background:linear-gradient(135deg,#ee2a7b,#6228d7);
+  color:#fff;text-decoration:none;white-space:nowrap;
+  transition:transform .2s,box-shadow .2s;
+  box-shadow:0 4px 18px rgba(238,42,123,.3);
+}
+.ig-banner-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(238,42,123,.45)}
 
-/* CATÁLOGO */
 #catalogo{background:#f5f0fe}
-.cat-g{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1160px;margin:0 auto}
-.cc{border-radius:22px;overflow:hidden;background:#fff;border:1px solid rgba(139,47,201,0.1);box-shadow:0 2px 14px rgba(139,47,201,0.06);transition:transform .4s cubic-bezier(.23,1,.32,1),box-shadow .4s;cursor:pointer;transform-style:preserve-3d}
-.cc:hover{transform:translateY(-12px) rotateX(5deg) scale(1.02);box-shadow:0 28px 60px rgba(139,47,201,0.2)}
+.catg{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1160px;margin:0 auto}
+.cc{border-radius:22px;overflow:hidden;background:#fff;border:1px solid rgba(139,47,201,.1);box-shadow:0 2px 14px rgba(139,47,201,.06);transition:transform .4s cubic-bezier(.23,1,.32,1),box-shadow .4s;cursor:pointer;transform-style:preserve-3d}
+.cc:hover{transform:translateY(-12px) rotateX(5deg) scale(1.02);box-shadow:0 28px 60px rgba(139,47,201,.2)}
 .cc-top{height:160px;overflow:hidden;position:relative}
 .cc-top img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
 .cc:hover .cc-top img{transform:scale(1.1)}
+.cc-body{padding:16px 18px 20px}
 .cc-tag{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--v);margin-bottom:5px}
 .cc-name{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:4px}
 .cc-items{font-size:11.5px;color:var(--txt3);line-height:1.6}
 .cc-arr{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:var(--v);margin-top:10px;transition:gap .25s}
 .cc:hover .cc-arr{gap:9px}
-.cc-body{padding:16px 18px 20px}
 
-/* PROCESO */
 #proceso{background:#fff}
-.steps{display:flex;gap:0;max-width:860px;margin:0 auto;position:relative}
-.steps::before{content:'';position:absolute;top:27px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(139,47,201,0.22),rgba(139,47,201,0.22),transparent)}
+.steps{display:flex;max-width:860px;margin:0 auto;position:relative}
+.steps::before{content:'';position:absolute;top:27px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(139,47,201,.22),rgba(139,47,201,.22),transparent)}
 .step{flex:1;text-align:center;padding:0 16px}
-.step-c{width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--vd),var(--v));box-shadow:0 6px 24px rgba(139,47,201,0.35);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:#fff;margin:0 auto 18px;transition:transform .3s,box-shadow .3s}
-.step:hover .step-c{transform:scale(1.12);box-shadow:0 10px 36px rgba(139,47,201,0.55)}
-.step-t{font-size:15px;font-weight:700;color:var(--txt);margin-bottom:8px}
-.step-d{font-size:13px;color:var(--txt2);line-height:1.6}
+.sc{width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--vd),var(--v));box-shadow:0 6px 24px rgba(139,47,201,.35);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:#fff;margin:0 auto 18px;transition:transform .3s,box-shadow .3s}
+.step:hover .sc{transform:scale(1.12);box-shadow:0 10px 36px rgba(139,47,201,.55)}
+.st{font-size:15px;font-weight:700;color:var(--txt);margin-bottom:8px}
+.sd{font-size:13px;color:var(--txt2);line-height:1.6}
 
-/* CONTACTO */
 #contacto{background:#f9f7fd}
 .cw{display:grid;grid-template-columns:1fr 1fr;gap:52px;max-width:840px;margin:0 auto}
 .cl h3{font-size:24px;font-weight:800;color:var(--txt);margin-bottom:10px}
 .cl p{font-size:14px;color:var(--txt2);line-height:1.7;margin-bottom:32px}
 .ci{display:flex;align-items:center;gap:14px;margin-bottom:18px}
-.cico{width:42px;height:42px;flex-shrink:0;border-radius:13px;background:rgba(139,47,201,0.07);border:1px solid rgba(139,47,201,0.18);display:flex;align-items:center;justify-content:center;font-size:17px}
+.cico{width:42px;height:42px;flex-shrink:0;border-radius:13px;background:rgba(139,47,201,.07);border:1px solid rgba(139,47,201,.18);display:flex;align-items:center;justify-content:center;font-size:17px}
 .cil{font-size:11px;color:var(--txt3);margin-bottom:2px;font-weight:600;letter-spacing:.5px}
 .civ{font-size:14px;color:var(--txt);font-weight:600}
 .socs{display:flex;gap:10px;margin-top:26px}
-.soc{width:40px;height:40px;border-radius:12px;background:rgba(139,47,201,0.06);border:1px solid rgba(139,47,201,0.14);display:flex;align-items:center;justify-content:center;font-size:17px;cursor:pointer;transition:all .25s;text-decoration:none}
-.soc:hover{background:rgba(139,47,201,0.12);border-color:rgba(139,47,201,0.3);transform:translateY(-3px)}
-.cform{background:#fff;border:1px solid rgba(139,47,201,0.1);border-radius:26px;padding:34px;box-shadow:0 6px 36px rgba(139,47,201,0.07)}
+.soc{width:40px;height:40px;border-radius:12px;background:rgba(139,47,201,.06);border:1px solid rgba(139,47,201,.14);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .25s;text-decoration:none}
+.soc:hover{transform:translateY(-3px)}
+.soc-ig{background:rgba(238,42,123,.06);border-color:rgba(238,42,123,.2)}
+.soc-ig:hover{background:rgba(238,42,123,.12);border-color:rgba(238,42,123,.4)}
+.soc-fb{background:rgba(24,119,242,.06);border-color:rgba(24,119,242,.2)}
+.soc-fb:hover{background:rgba(24,119,242,.12);border-color:rgba(24,119,242,.4)}
+.cform{background:#fff;border:1px solid rgba(139,47,201,.1);border-radius:26px;padding:34px;box-shadow:0 6px 36px rgba(139,47,201,.07)}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:11px}
 .fg{margin-bottom:13px}
 .fl{font-size:11px;font-weight:700;color:var(--txt3);letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:7px}
-.fi{width:100%;padding:12px 14px;border-radius:12px;background:#f8f5fe;border:1px solid rgba(139,47,201,0.14);color:var(--txt);font-size:14px;font-family:inherit;outline:none;transition:border-color .2s,box-shadow .2s}
-.fi:focus{border-color:var(--v);box-shadow:0 0 0 3px rgba(139,47,201,0.08);background:#fff}
+.fi{width:100%;padding:12px 14px;border-radius:12px;background:#f8f5fe;border:1px solid rgba(139,47,201,.14);color:var(--txt);font-size:14px;font-family:inherit;outline:none;transition:border-color .2s,box-shadow .2s}
+.fi:focus{border-color:var(--v);box-shadow:0 0 0 3px rgba(139,47,201,.08);background:#fff}
 .fi::placeholder{color:var(--txt3)}
 textarea.fi{resize:none;height:85px}
-.fbtn{width:100%;padding:14px;border-radius:13px;background:linear-gradient(135deg,var(--vd),var(--v));color:#fff;font-size:14px;font-weight:800;border:none;cursor:pointer;font-family:inherit;box-shadow:0 6px 22px var(--glow);transition:transform .25s,box-shadow .25s;letter-spacing:.5px}
-.fbtn:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(139,47,201,0.4)}
+.fbtn{width:100%;padding:14px;border-radius:13px;background:linear-gradient(135deg,var(--vd),var(--v));color:#fff;font-size:14px;font-weight:800;border:none;cursor:pointer;font-family:inherit;box-shadow:0 6px 22px var(--glow);transition:transform .25s,box-shadow .25s}
+.fbtn:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(139,47,201,.4)}
 
-/* FOOTER */
 footer{background:var(--txt);padding:28px 52px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:10}
 .flo{font-size:16px;font-weight:800;background:linear-gradient(135deg,#fff,var(--vl));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.fco{font-size:12px;color:rgba(255,255,255,0.4)}
+.fco{font-size:12px;color:rgba(255,255,255,.4)}
+.f-ig{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+.f-ig:hover{color:#ee2a7b}
+.f-ig svg{flex-shrink:0}
 
-/* WA */
-.wa{position:fixed;bottom:28px;right:28px;z-index:300;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#25D366,#128C7E);display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 6px 28px rgba(37,211,102,0.4);cursor:pointer;transition:transform .25s,box-shadow .25s;text-decoration:none;animation:waP .6s ease 1s both}
+.wa{position:fixed;bottom:28px;right:28px;z-index:300;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#25D366,#128C7E);display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 6px 28px rgba(37,211,102,.4);cursor:pointer;transition:transform .25s;text-decoration:none;animation:wP .6s ease 1s both}
 .wa:hover{transform:translateY(-4px) scale(1.08)}
-@keyframes waP{from{opacity:0;transform:scale(0)}to{opacity:1;transform:scale(1)}}
+@keyframes wP{from{opacity:0;transform:scale(0)}to{opacity:1;transform:scale(1)}}
 
-/* REVEAL */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.23,1,.32,1),transform .8s cubic-bezier(.23,1,.32,1)}
 .reveal.up{opacity:1;transform:translateY(0)}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
-
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:#f5f0ff}::-webkit-scrollbar-thumb{background:var(--v);border-radius:2px}
 
 @media(max-width:900px){
   nav{padding:14px 20px}.nav-links{display:none}
-  #hero{grid-template-columns:1fr;min-height:auto}.hero-right{height:60vw}
+  #hero{grid-template-columns:1fr}.hero-right{height:60vw}
   .hero-left{padding:100px 24px 40px}
-  .vals{grid-template-columns:1fr}.cat-g{grid-template-columns:repeat(2,1fr)}
+  .vals,.catg{grid-template-columns:1fr}
   .gal-grid{grid-template-columns:repeat(2,1fr);grid-template-rows:auto}
-  .gal-item.tall,.gal-item.wide{grid-row:span 1;grid-column:span 1}
+  .gi.tall,.gi.wide{grid-row:span 1;grid-column:span 1}
   .steps{flex-direction:column;gap:24px}.steps::before{display:none}
   .cw{grid-template-columns:1fr}.frow{grid-template-columns:1fr}
-  section.sec{padding:60px 24px}
-  footer{flex-direction:column;gap:10px;text-align:center}
+  .sec{padding:60px 24px}
+  footer{flex-direction:column;gap:12px;text-align:center}
+  .catg{grid-template-columns:repeat(2,1fr)}
+  .ig-banner-inner{flex-direction:column;text-align:center}
 }
 </style>
 </head>
 <body>
 <canvas id="particles"></canvas>
 
+<!-- NAV — Instagram en los links -->
 <nav>
   <div class="logo">Living Rental</div>
   <ul class="nav-links">
@@ -185,6 +210,19 @@ footer{background:var(--txt);padding:28px 52px;display:flex;align-items:center;j
     <li><a href="#galeria">Galería</a></li>
     <li><a href="#catalogo">Catálogo</a></li>
     <li><a href="#contacto">Contacto</a></li>
+    <li>
+      <a href="https://www.instagram.com/livingrental/" target="_blank" class="nav-ig">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="url(#n1)" stroke-width="2"/>
+          <circle cx="12" cy="12" r="4.5" stroke="url(#n1)" stroke-width="2"/>
+          <circle cx="17.5" cy="6.5" r="1.2" fill="url(#n1)"/>
+          <defs><linearGradient id="n1" x1="2" y1="22" x2="22" y2="2" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#f9ce34"/><stop offset=".35" stop-color="#ee2a7b"/><stop offset="1" stop-color="#6228d7"/>
+          </linearGradient></defs>
+        </svg>
+        @livingrental
+      </a>
+    </li>
   </ul>
   <a href="#contacto" class="nav-btn">Pedir presupuesto</a>
 </nav>
@@ -192,34 +230,34 @@ footer{background:var(--txt);padding:28px 52px;display:flex;align-items:center;j
 <!-- HERO -->
 <section id="hero">
   <div class="hero-left">
-    <div class="hero-blob"></div>
-    <div class="hero-tag"><span class="pdot"></span>Más de 20 años ambientando eventos únicos</div>
+    <div class="hblob"></div>
+    <div class="hero-tag"><span class="pd"></span>Más de 20 años ambientando eventos únicos</div>
     <h1 class="hero-h1">
-      <span class="h1d">Muebles que</span><br>
-      <span class="h1g">transforman</span><br>
-      <span class="h1m">cada evento</span>
+      <span class="hd">Muebles que</span><br>
+      <span class="hg">transforman</span><br>
+      <span class="hm">cada evento</span>
     </h1>
     <p class="hero-desc">Alquiler de muebles premium y ambientación profesional para eventos sociales y corporativos en Buenos Aires. Transporte y armado incluidos.</p>
-    <div class="hero-btns">
-      <a href="#galeria" class="btn-g">Ver galería de eventos</a>
-      <a href="#contacto" class="btn-o">Pedir presupuesto →</a>
+    <div class="hbtns">
+      <a href="#galeria" class="bg">Ver galería de eventos</a>
+      <a href="#contacto" class="bo">Pedir presupuesto →</a>
     </div>
-    <div class="hero-stats">
+    <div class="hstats">
       <div><div class="sn" id="c1">0</div><div class="sl">Años de experiencia</div></div>
       <div><div class="sn" id="c2">0</div><div class="sl">Eventos realizados</div></div>
       <div><div class="sn" id="c3">0</div><div class="sl">Clientes satisfechos</div></div>
     </div>
   </div>
   <div class="hero-right">
-    <img id="heroImg" src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1000&h=1000&fit=crop" alt="Living Rental - Ambientación de eventos" style="width:100%;height:100%;object-fit:cover;transition:opacity 1.2s ease">
+    <img id="heroImg" src="https://www.livingrental.com.ar/wp-content/uploads/2026/04/20251031_151224.jpg" alt="Living Rental">
     <div class="hero-right-overlay"></div>
-    <div class="hero-badge-float" style="bottom:18%;left:6%">
-      <div class="hbf-label">Ambiente</div>
-      <div class="hbf-val">Caña & Ratán</div>
-    </div>
-    <div class="hero-badge-float" style="top:18%;right:6%">
-      <div class="hbf-label">Colección</div>
-      <div class="hbf-val">Exterior 2026</div>
+    <div class="hbf" style="bottom:16%;left:5%;animation-delay:0s"><div class="hbf-l">Colección</div><div class="hbf-v">Caña & Ratán</div></div>
+    <div class="hbf" style="top:18%;right:5%;animation-delay:-2.5s"><div class="hbf-l">Temporada</div><div class="hbf-v">2026 ✦</div></div>
+    <div class="hero-dots">
+      <div class="hdot active" onclick="setSlide(0)"></div>
+      <div class="hdot" onclick="setSlide(1)"></div>
+      <div class="hdot" onclick="setSlide(2)"></div>
+      <div class="hdot" onclick="setSlide(3)"></div>
     </div>
   </div>
 </section>
@@ -234,38 +272,53 @@ footer{background:var(--txt);padding:28px 52px;display:flex;align-items:center;j
     <p class="sec-sub">Más de 20 años transformando espacios. Transporte y armado incluidos según tus requerimientos.</p>
   </div>
   <div class="vals">
-    <div class="vc reveal d1"><div class="vc-num">01</div><div class="vc-ico">✦</div><div class="vc-t">Dedicación</div><div class="vc-d">Productos de alta calidad con terminaciones y estética que marcan la diferencia en cada ambientación.</div><div class="vc-line"></div></div>
-    <div class="vc reveal d2"><div class="vc-num">02</div><div class="vc-ico">◈</div><div class="vc-t">Creatividad</div><div class="vc-d">Soluciones innovadoras y personalizadas. Convertimos tu visión en un espacio que sorprende a tus invitados.</div><div class="vc-line"></div></div>
-    <div class="vc reveal d3"><div class="vc-num">03</div><div class="vc-ico">◉</div><div class="vc-t">Servicio</div><div class="vc-d">100% confiable y profesional. Coordinación integral para que no te preocupes por nada el día del evento.</div><div class="vc-line"></div></div>
+    <div class="vc reveal d1"><div class="vc-n">01</div><div class="vc-i">✦</div><div class="vc-t">Dedicación</div><div class="vc-d">Productos de alta calidad con terminaciones y estética que marcan la diferencia en cada ambientación.</div><div class="vc-ln"></div></div>
+    <div class="vc reveal d2"><div class="vc-n">02</div><div class="vc-i">◈</div><div class="vc-t">Creatividad</div><div class="vc-d">Soluciones innovadoras y personalizadas. Convertimos tu visión en un espacio que sorprende a tus invitados.</div><div class="vc-ln"></div></div>
+    <div class="vc reveal d3"><div class="vc-n">03</div><div class="vc-i">◉</div><div class="vc-t">Servicio</div><div class="vc-d">100% confiable y profesional. Coordinación integral para que no te preocupes por nada el día del evento.</div><div class="vc-ln"></div></div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- GALERÍA -->
+<!-- GALERÍA — con banner de Instagram abajo -->
 <section class="sec" id="galeria">
   <div class="reveal">
     <p class="eyebrow">Nuestros eventos</p>
     <h2 class="sec-h">Cada espacio, una historia</h2>
-    <p class="sec-sub">Desde bodas íntimas en campos hasta eventos corporativos en estadios. Siempre con el mismo nivel de excelencia.</p>
+    <p class="sec-sub">Desde bodas íntimas en campos hasta eventos corporativos. Siempre con el mismo nivel de excelencia.</p>
   </div>
-
-  <div class="gal-hero reveal">
-    <img id="gHero" src="https://images.unsplash.com/photo-1519671482677-5b9564a0f7e9?w=1200&h=600&fit=crop" alt="Evento destacado Living Rental">
-    <div class="gal-hero-overlay"></div>
-    <div class="gal-hero-caption">
-      <h3>Ambientación en campo — Línea Caña</h3>
-      <p>Evento social · Buenos Aires, 2025</p>
-    </div>
+  <div class="gal-main reveal">
+    <img src="https://www.livingrental.com.ar/wp-content/uploads/2026/04/20241019_180229-scaled.jpg" alt="Evento destacado">
+    <div class="gal-overlay"></div>
+    <div class="gal-cap"><h3>Living caña & gervasoni — Evento al aire libre</h3><p>Buenos Aires · 2025</p></div>
   </div>
-
   <div class="gal-grid reveal">
-    <div class="gal-item tall"><img id="g1" src="https://images.unsplash.com/photo-1585128472067-d783e00c69d9?w=400&h=600&fit=crop" alt="Evento 1"><div class="gal-item-overlay"></div></div>
-    <div class="gal-item"><img id="g2" src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=400&h=300&fit=crop" alt="Evento 2"><div class="gal-item-overlay"></div></div>
-    <div class="gal-item"><img id="g3" src="https://images.unsplash.com/photo-1567521464027-f127ff144326?w=400&h=300&fit=crop" alt="Evento 3"><div class="gal-item-overlay"></div></div>
-    <div class="gal-item"><img id="g4" src="https://images.unsplash.com/photo-1519671482677-5b9564a0f7e9?w=400&h=300&fit=crop" alt="Evento 4"><div class="gal-item-overlay"></div></div>
-    <div class="gal-item wide"><img id="g5" src="https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&h=300&fit=crop" alt="Evento 5" style="width:100%;height:100%;object-fit:cover"><div class="gal-item-overlay"></div></div>
-    <div class="gal-item"><img id="g6" src="https://images.unsplash.com/photo-1585128472067-d783e00c69d9?w=400&h=300&fit=crop" alt="Evento 6"><div class="gal-item-overlay"></div></div>
+    <div class="gi tall"><img src="https://www.livingrental.com.ar/wp-content/uploads/2025/06/front-1-web.jpg" alt="Evento 1"><div class="gi-ov"></div></div>
+    <div class="gi"><img src="https://www.livingrental.com.ar/wp-content/uploads/2026/04/20251031_151224-1000x750.jpg" alt="Evento 2"><div class="gi-ov"></div></div>
+    <div class="gi"><img src="https://www.livingrental.com.ar/wp-content/uploads/2026/04/20241019_180229-1000x750.jpg" alt="Evento 3"><div class="gi-ov"></div></div>
+    <div class="gi wide"><img src="https://www.livingrental.com.ar/wp-content/uploads/2026/04/20251031_151224.jpg" alt="Evento 4" style="width:100%;height:100%;object-fit:cover"><div class="gi-ov"></div></div>
+    <div class="gi"><img src="https://www.livingrental.com.ar/wp-content/uploads/2026/04/20241019_180229-scaled.jpg" alt="Evento 5"><div class="gi-ov"></div></div>
+    <div class="gi"><img src="https://www.livingrental.com.ar/wp-content/uploads/2025/06/front-1-web.jpg" alt="Evento 6"><div class="gi-ov"></div></div>
+  </div>
+
+  <!-- BANNER INSTAGRAM debajo de la galería -->
+  <div class="ig-banner reveal" style="margin-top:28px">
+    <div class="ig-banner-inner">
+      <div class="ig-banner-left">
+        <div class="ig-banner-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+            <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="2"/>
+            <circle cx="12" cy="12" r="4.5" stroke="white" stroke-width="2"/>
+            <circle cx="17.5" cy="6.5" r="1.4" fill="white"/>
+          </svg>
+        </div>
+        <div class="ig-banner-text">
+          <strong>Seguinos en Instagram</strong>
+          <span>Mirá más eventos, novedades y los últimos trabajos en @livingrental</span>
+        </div>
+      </div>
+      <a href="https://www.instagram.com/livingrental/" target="_blank" class="ig-banner-btn">Ver @livingrental →</a>
+    </div>
   </div>
 </section>
 
@@ -278,39 +331,39 @@ footer{background:var(--txt);padding:28px 52px;display:flex;align-items:center;j
     <h2 class="sec-h">Nuestras colecciones</h2>
     <p class="sec-sub">Exterior e interior. Cada línea diseñada para crear ambientes únicos y memorables.</p>
   </div>
-  <div class="cat-g reveal">
-    <div class="cc"><div class="cc-top"><img id="cat1" src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=400&h=250&fit=crop" alt="Caña y Ratán"></div><div class="cc-body"><div class="cc-tag">Exterior</div><div class="cc-name">Caña & Ratán</div><div class="cc-items">Living caña · MDQ · Gervasoni · Pana</div><div class="cc-arr">Ver colección →</div></div></div>
-    <div class="cc"><div class="cc-top"><img id="cat2" src="https://images.unsplash.com/photo-1585128472067-d783e00c69d9?w=400&h=250&fit=crop" alt="Línea Madera"></div><div class="cc-body"><div class="cc-tag">Exterior</div><div class="cc-name">Línea Madera</div><div class="cc-items">Living · Tulum · Sillas Bali · Kentucky</div><div class="cc-arr">Ver colección →</div></div></div>
-    <div class="cc"><div class="cc-top"><img id="cat3" src="https://images.unsplash.com/photo-1567521464027-f127ff144326?w=400&h=250&fit=crop" alt="Gabardina Blanca"></div><div class="cc-body"><div class="cc-tag">Interior</div><div class="cc-name">Gabardina Blanca</div><div class="cc-items">Con puff · Materas · Mesa alta · Camastros</div><div class="cc-arr">Ver colección →</div></div></div>
-    <div class="cc"><div class="cc-top"><img id="cat4" src="https://images.unsplash.com/photo-1519671482677-5b9564a0f7e9?w=400&h=250&fit=crop" alt="Línea Hierro"></div><div class="cc-body"><div class="cc-tag">Ext. / Int.</div><div class="cc-name">Línea Hierro</div><div class="cc-items">Hierro blanco · Negro · Mesa alta · Redondas</div><div class="cc-arr">Ver colección →</div></div></div>
-    <div class="cc"><div class="cc-top"><img id="cat5" src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=400&h=250&fit=crop" alt="Línea Lino"></div><div class="cc-body"><div class="cc-tag">Interior</div><div class="cc-name">Línea Lino</div><div class="cc-items">Lino beige · Gris y pana · Bali · Gervasoni</div><div class="cc-arr">Ver colección →</div></div></div>
-    <div class="cc"><div class="cc-top"><img id="cat6" src="https://images.unsplash.com/photo-1585128472067-d783e00c69d9?w=400&h=250&fit=crop" alt="Línea Pana"></div><div class="cc-body"><div class="cc-tag">Interior</div><div class="cc-name">Línea Pana</div><div class="cc-items">Beige · Azul · Habano · Negro · Verde oliva</div><div class="cc-arr">Ver colección →</div></div></div>
-    <div class="cc"><div class="cc-top"><img id="cat7" src="https://images.unsplash.com/photo-1464207687429-7505649dae38?w=400&h=250&fit=crop" alt="Gazebos"></div><div class="cc-body"><div class="cc-tag">Exterior</div><div class="cc-name">Gazebos & Exteriores</div><div class="cc-items">Gazebos hierro · Madera · Sombrillas · Reposeras</div><div class="cc-arr">Ver colección →</div></div></div>
-    <div class="cc"><div class="cc-top"><img id="cat8" src="https://images.unsplash.com/photo-1567521464027-f127ff144326?w=400&h=250&fit=crop" alt="Sillas y Otros"></div><div class="cc-body"><div class="cc-tag">Int. / Ext.</div><div class="cc-name">Sillas & Otros</div><div class="cc-items">Venecia · Tulum · Bancos · Barcelona · Paulín</div><div class="cc-arr">Ver colección →</div></div></div>
+  <div class="catg reveal">
+    <div class="cc"><div class="cc-top"><img src="https://www.livingrental.com.ar/wp-content/uploads/2026/04/20251031_151224-1000x750.jpg" alt="Caña y Ratán"></div><div class="cc-body"><div class="cc-tag">Exterior</div><div class="cc-name">Caña & Ratán</div><div class="cc-items">Living caña · MDQ · Gervasoni · Pana</div><div class="cc-arr">Ver colección →</div></div></div>
+    <div class="cc"><div class="cc-top"><img src="https://www.livingrental.com.ar/wp-content/uploads/2026/04/20241019_180229-1000x750.jpg" alt="Living Gervasoni"></div><div class="cc-body"><div class="cc-tag">Exterior</div><div class="cc-name">Living Gervasoni</div><div class="cc-items">Gervasoni simple · Con camastro · Con gabardina</div><div class="cc-arr">Ver colección →</div></div></div>
+    <div class="cc"><div class="cc-top"><img src="https://www.livingrental.com.ar/wp-content/uploads/2025/06/front-1-web.jpg" alt="Línea Madera"></div><div class="cc-body"><div class="cc-tag">Exterior / Interior</div><div class="cc-name">Línea Madera</div><div class="cc-items">Living · Tulum · Sillas Bali · Kentucky</div><div class="cc-arr">Ver colección →</div></div></div>
+    <div class="cc"><div class="cc-top"><img src="https://www.livingrental.com.ar/wp-content/uploads/2026/04/20251031_151224.jpg" alt="Gabardina Blanca"></div><div class="cc-body"><div class="cc-tag">Interior</div><div class="cc-name">Gabardina Blanca</div><div class="cc-items">Con puff · Materas · Mesa alta · Camastros</div><div class="cc-arr">Ver colección →</div></div></div>
+    <div class="cc"><div class="cc-top"><img src="https://www.livingrental.com.ar/wp-content/uploads/2026/04/20241019_180229-scaled.jpg" alt="Línea Hierro"></div><div class="cc-body"><div class="cc-tag">Ext. / Int.</div><div class="cc-name">Línea Hierro</div><div class="cc-items">Hierro blanco · Negro · Mesa alta · Redondas</div><div class="cc-arr">Ver colección →</div></div></div>
+    <div class="cc"><div class="cc-top"><img src="https://www.livingrental.com.ar/wp-content/uploads/2026/04/20251031_151224-1000x750.jpg" alt="Línea Lino"></div><div class="cc-body"><div class="cc-tag">Interior</div><div class="cc-name">Línea Lino</div><div class="cc-items">Lino beige · Gris y pana · Bali · Gervasoni</div><div class="cc-arr">Ver colección →</div></div></div>
+    <div class="cc"><div class="cc-top"><img src="https://www.livingrental.com.ar/wp-content/uploads/2026/04/20241019_180229-1000x750.jpg" alt="Línea Pana"></div><div class="cc-body"><div class="cc-tag">Interior</div><div class="cc-name">Línea Pana</div><div class="cc-items">Beige · Azul · Habano · Negro · Verde oliva</div><div class="cc-arr">Ver colección →</div></div></div>
+    <div class="cc"><div class="cc-top"><img src="https://www.livingrental.com.ar/wp-content/uploads/2025/06/front-1-web.jpg" alt="Gazebos"></div><div class="cc-body"><div class="cc-tag">Exterior</div><div class="cc-name">Gazebos & Exteriores</div><div class="cc-items">Gazebos hierro · Madera · Sombrillas · Reposeras</div><div class="cc-arr">Ver colección →</div></div></div>
   </div>
 </section>
 
 <div class="divider"></div>
 
 <!-- PROCESO -->
-<section class="sec" id="proceso" style="background:#f9f7fd">
+<section class="sec" id="proceso" style="background:#fff">
   <div class="reveal">
     <p class="eyebrow">Cómo trabajamos</p>
     <h2 class="sec-h">Simple y sin complicaciones</h2>
     <p class="sec-sub">En 4 pasos transformamos tu evento en una experiencia única.</p>
   </div>
   <div class="steps reveal">
-    <div class="step"><div class="step-c">1</div><div class="step-t">Consultá</div><div class="step-d">Contanos sobre tu evento: fecha, lugar y estilo.</div></div>
-    <div class="step"><div class="step-c">2</div><div class="step-t">Elegí</div><div class="step-d">Te enviamos opciones del catálogo a medida.</div></div>
-    <div class="step"><div class="step-c">3</div><div class="step-t">Coordinamos</div><div class="step-d">Organizamos logística y armado en el lugar.</div></div>
-    <div class="step"><div class="step-c">4</div><div class="step-t">Disfrutá</div><div class="step-d">Tu evento luce impecable. Nosotros nos encargamos.</div></div>
+    <div class="step"><div class="sc">1</div><div class="st">Consultá</div><div class="sd">Contanos sobre tu evento: fecha, lugar y estilo.</div></div>
+    <div class="step"><div class="sc">2</div><div class="st">Elegí</div><div class="sd">Te enviamos opciones del catálogo a medida.</div></div>
+    <div class="step"><div class="sc">3</div><div class="st">Coordinamos</div><div class="sd">Organizamos logística y armado en el lugar.</div></div>
+    <div class="step"><div class="sc">4</div><div class="st">Disfrutá</div><div class="sd">Tu evento luce impecable. Nosotros nos encargamos.</div></div>
   </div>
 </section>
 
 <div class="divider"></div>
 
 <!-- CONTACTO -->
-<section class="sec" id="contacto">
+<section class="sec" id="contacto" style="background:#f9f7fd">
   <div class="reveal">
     <p class="eyebrow">Contacto</p>
     <h2 class="sec-h">¿Tenés un evento en mente?</h2>
@@ -324,8 +377,23 @@ footer{background:var(--txt);padding:28px 52px;display:flex;align-items:center;j
       <div class="ci"><div class="cico">📧</div><div><div class="cil">Email</div><div class="civ">info@livingrental.com.ar</div></div></div>
       <div class="ci"><div class="cico">📍</div><div><div class="cil">Ubicación</div><div class="civ">Florida, Buenos Aires</div></div></div>
       <div class="socs">
-        <a href="https://www.instagram.com/livingrental/" class="soc" target="_blank">📸</a>
-        <a href="https://www.facebook.com/livingrental" class="soc" target="_blank">📘</a>
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/livingrental/" class="soc soc-ig" target="_blank" title="@livingrental en Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="url(#ig2)" stroke-width="2"/>
+            <circle cx="12" cy="12" r="4.5" stroke="url(#ig2)" stroke-width="2"/>
+            <circle cx="17.5" cy="6.5" r="1.2" fill="url(#ig2)"/>
+            <defs><linearGradient id="ig2" x1="2" y1="22" x2="22" y2="2" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#f9ce34"/><stop offset=".35" stop-color="#ee2a7b"/><stop offset="1" stop-color="#6228d7"/>
+            </linearGradient></defs>
+          </svg>
+        </a>
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/livingrental" class="soc soc-fb" target="_blank" title="Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="#1877F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
       </div>
     </div>
     <div class="cform">
@@ -335,77 +403,53 @@ footer{background:var(--txt);padding:28px 52px;display:flex;align-items:center;j
       </div>
       <div class="fg"><label class="fl">Tipo de evento</label><input type="text" class="fi" placeholder="Casamiento, cumpleaños, corporativo..."></div>
       <div class="fg"><label class="fl">Fecha del evento</label><input type="text" class="fi" placeholder="DD/MM/AAAA"></div>
-      <div class="fg"><label class="fl">Mensaje</label><textarea class="fi" placeholder="Contanos: lugar, cantidad de personas, estilo buscado..."></textarea></div>
+      <div class="fg"><label class="fl">Mensaje</label><textarea class="fi" placeholder="Lugar, cantidad de personas, estilo buscado..."></textarea></div>
       <button class="fbtn">Enviar consulta →</button>
     </div>
   </div>
 </section>
 
+<!-- FOOTER — Instagram integrado -->
 <footer>
   <div class="flo">Living Rental</div>
   <div class="fco">© 2026 · Florida, Buenos Aires · livingrental.com.ar</div>
-  <div class="fco">Diseñado con IA ✦</div>
+  <a href="https://www.instagram.com/livingrental/" target="_blank" class="f-ig">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+      <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="currentColor" stroke-width="2"/>
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="2"/>
+      <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/>
+    </svg>
+    @livingrental
+  </a>
 </footer>
 
 <a href="https://wa.me/5491163814438" class="wa" target="_blank">💬</a>
 
 <script>
-// ── PARTICLES ANIMATION ──
-const canvas = document.getElementById('particles');
-const ctx = canvas.getContext('2d');
+const heroImgs=['https://www.livingrental.com.ar/wp-content/uploads/2026/04/20251031_151224.jpg','https://www.livingrental.com.ar/wp-content/uploads/2026/04/20241019_180229-scaled.jpg','https://www.livingrental.com.ar/wp-content/uploads/2025/06/front-1-web.jpg','https://www.livingrental.com.ar/wp-content/uploads/2026/04/20251031_151224-1000x750.jpg'];
+let hIdx=0;
+function setSlide(i){hIdx=i;const img=document.getElementById('heroImg');img.style.opacity='0';setTimeout(()=>{img.src=heroImgs[i];img.style.opacity='1'},600);document.querySelectorAll('.hdot').forEach((d,j)=>d.classList.toggle('active',j===i));}
+setInterval(()=>setSlide((hIdx+1)%heroImgs.length),4500);
+
+const canvas=document.getElementById('particles'),ctx=canvas.getContext('2d');
 let W,H,pts=[];
 function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight}
-resize(); window.addEventListener('resize',resize);
-for(let i=0;i<90;i++) pts.push({x:Math.random()*1920,y:Math.random()*1080,r:Math.random()*1.3+.4,vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22,a:Math.random()*.6+.2});
-function drawP(){
-  ctx.clearRect(0,0,W,H);
-  pts.forEach(p=>{
-    p.x+=p.vx; p.y+=p.vy;
-    if(p.x<0)p.x=W; if(p.x>W)p.x=0; if(p.y<0)p.y=H; if(p.y>H)p.y=0;
-    ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-    ctx.fillStyle=`rgba(139,47,201,${p.a*.3})`; ctx.fill();
-  });
-  pts.forEach((a,i)=>{
-    for(let j=i+1;j<pts.length;j++){
-      const b=pts[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.sqrt(dx*dx+dy*dy);
-      if(d<120){ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.strokeStyle=`rgba(139,47,201,${.08*(1-d/120)})`;ctx.lineWidth=.5;ctx.stroke()}
-    }
-  });
-  requestAnimationFrame(drawP);
-}
+resize();window.addEventListener('resize',resize);
+for(let i=0;i<90;i++)pts.push({x:Math.random()*1920,y:Math.random()*1080,r:Math.random()*1.3+.4,vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22,a:Math.random()*.6+.2});
+function drawP(){ctx.clearRect(0,0,W,H);pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=`rgba(139,47,201,${p.a*.3})`;ctx.fill();});pts.forEach((a,i)=>{for(let j=i+1;j<pts.length;j++){const b=pts[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.sqrt(dx*dx+dy*dy);if(d<120){ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.strokeStyle=`rgba(139,47,201,${.08*(1-d/120)})`;ctx.lineWidth=.5;ctx.stroke()}}});requestAnimationFrame(drawP);}
 drawP();
 
-// ── COUNTERS ANIMATION ──
-function animC(el,target,suffix){
-  let v=0,steps=55,inc=target/steps;
-  const t=()=>{v=Math.min(v+inc,target);el.textContent=Math.round(v)+suffix;if(v<target)requestAnimationFrame(t)};
-  requestAnimationFrame(t);
-}
-new IntersectionObserver(e=>{
-  if(e[0].isIntersecting){
-    animC(document.getElementById('c1'),20,'+');
-    animC(document.getElementById('c2'),500,'+');
-    animC(document.getElementById('c3'),100,'%');
-  }
-},{threshold:.5}).observe(document.querySelector('.hero-stats'));
+function animC(el,target,suffix){let v=0,inc=target/55;const t=()=>{v=Math.min(v+inc,target);el.textContent=Math.round(v)+suffix;if(v<target)requestAnimationFrame(t)};requestAnimationFrame(t);}
+new IntersectionObserver(e=>{if(e[0].isIntersecting){animC(document.getElementById('c1'),20,'+');animC(document.getElementById('c2'),500,'+');animC(document.getElementById('c3'),100,'%');}},{threshold:.5}).observe(document.querySelector('.hstats'));
 
-// ── REVEAL ON SCROLL ──
 const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('up')})},{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-// ── SMOOTH SCROLL ──
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})});
-});
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'});});});
 
-// ── 3D TILT EFFECT ──
 document.querySelectorAll('.vc,.cc').forEach(card=>{
-  card.addEventListener('mousemove',e=>{
-    const r=card.getBoundingClientRect();
-    const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
-    card.style.transform=`perspective(800px) rotateX(${-y*12}deg) rotateY(${x*12}deg) translateY(-8px) scale(1.02)`;
-  });
-  card.addEventListener('mouseleave',()=>{card.style.transform=''});
+  card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.transform=`perspective(800px) rotateX(${-y*12}deg) rotateY(${x*12}deg) translateY(-8px) scale(1.02)`;});
+  card.addEventListener('mouseleave',()=>{card.style.transform='';});
 });
 </script>
 </body>
